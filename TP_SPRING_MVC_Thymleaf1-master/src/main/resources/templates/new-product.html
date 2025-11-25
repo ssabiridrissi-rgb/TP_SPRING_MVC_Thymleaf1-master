@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout1">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+
+<body>
+<div class="p-3" layout:fragment="content1">
+    <!-- Zone de contenu envoyée dans le layout principal -->
+
+    <form method="post" th:action="@{/admin/saveProduct}">
+        <!-- Formulaire envoyé en POST vers /admin/saveProduct pour enregistrer un produit -->
+
+        <div class="mb-3">
+            <!-- Champ pour saisir le nom du produit + marge en bas -->
+
+            <Label class="form-label"> Name</Label>
+            <!-- Label du champ -->
+
+            <input class="form-control" type="text" name="name" th:value="${product.name}">
+            <!-- Champ texte pour le nom (lié à l'attribut name de Product) -->
+
+            <span class="text-danger" th:errors="${product.name}"></span>
+            <!-- Si une erreur de validation existe (ex : nom trop court), je l'affiche ici en rouge -->
+        </div>
+
+        <div class="mb-3">
+            <!-- Champ pour saisir le prix -->
+
+            <Label class="form-label"> Price</Label>
+
+            <input class="form-control" type="text" name="price" th:value="${product.price}">
+            <!-- Champ pour le prix, pré-rempli si le produit existe -->
+
+            <span class="text-danger" th:errors="${product.price}"></span>
+            <!-- Affiche les erreurs liées au prix (ex : prix négatif) -->
+        </div>
+
+        <div class="mb-3">
+            <!-- Champ pour la quantité -->
+
+            <Label class="form-label"> Quantity</Label>
+
+            <input class="form-control" type="text" name="quantity" th:value="${product.quantity}">
+            <!-- Champ quantité, pré-rempli si modification -->
+
+            <span class="text-danger" th:errors="${product.quantity}"></span>
+            <!-- Affiche les erreurs de validation pour la quantité -->
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <!-- Bouton pour envoyer le formulaire -->
+    </form>
+</div>
+
+</body>
+</html>

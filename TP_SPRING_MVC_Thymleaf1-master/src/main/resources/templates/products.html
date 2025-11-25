@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="layout1">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+<div class="p-3" layout:fragment="content1">
+    <!-- Zone de contenu injectée dans le layout principal -->
+
+    <div class="p-3" sec:authorize="hasRole('ADMIN')">
+        <!-- Cette section est visible uniquement pour les utilisateurs ayant le rôle ADMIN -->
+
+        <a class="btn btn-primary" th:href="@{/admin/newProduct}"> New Product </a>
+        <!-- Bouton pour accéder au formulaire d'ajout d'un nouveau produit -->
+    </div>
+
+    <table class="table">
+        <!-- Tableau Bootstrap pour afficher la liste des produits -->
+
+        <thead>
+        <tr>
+            <th> Id</th>        <!-- Identifiant du produit -->
+            <th> Name</th>      <!-- Nom du produit -->
+            <th> Price</th>     <!-- Prix du produit -->
+            <th> Quantity</th>  <!-- Quantité en stock -->
+            <th> Actions</th>   <!-- Actions possibles (ex: supprimer) -->
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="p : ${productListe}">
+            <!-- Boucle Thymeleaf : je parcours chaque produit de la liste -->
+
+            <td th:text="${p.id}"></td>        <!-- Affiche l'id du produit -->
+            <td th:text="${p.name}"></td>      <!-- Affiche le nom -->
+            <td th:text="${p.price}"></td>     <!-- Affiche le prix -->
+            <td th:text="${p.quantity}"></td>  <!-- Affiche la quantité -->
+
+            <td sec:authorize="hasRole('ADMIN')">
+                <!-- Seul un ADMIN peut voir et utiliser les actions -->
+
+                <form method="post" th:action="@{'/admin/delete'(id=${p.id})}">
+                    <!-- Formulaire d’envoi en POST pour supprimer un produit -->
+
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <!-- Bouton de suppression -->
+                </form>
+
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+
+
+</body>
+</html>

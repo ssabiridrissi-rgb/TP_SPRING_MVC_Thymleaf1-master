@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<!-- J'active les fonctionnalités Thymeleaf pour utiliser th:text, th:each, th:href, etc. -->
+<!-- J'active le système de layout Thymeleaf pour utiliser layout:decorate et layout:fragment -->
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="stylesheet"  type="text/css" href="webjars/bootstrap/5.3.5/css/bootstrap.min.css" >
+</head>
+
+<body>
+<div class="p-3" layout:fragment="content1">
+    <!-- Zone où je mets le contenu spécifique de la page de login -->
+
+    <div class="row">
+        <!-- Je crée une ligne Bootstrap -->
+
+        <div class="col col-md-6 offset-md-3">
+            <!-- Je centre le formulaire sur la page grâce au offset -->
+
+            <div class="card">
+                <!-- Une carte Bootstrap pour le style -->
+
+                <div class="card-header"> Authentification</div>
+                <!-- Titre du formulaire -->
+
+                <div class="card-body">
+                    <!-- Corps de la carte où se trouve le formulaire -->
+
+                    <form method="post" th:action="@{/login}">
+                        <!-- Formulaire envoyé en POST vers /login géré par Spring Security -->
+
+                        <div class="mb-3">
+                            <!-- Champ du nom d'utilisateur -->
+                            <label class="form-label"> Username </label>
+                            <input type="text" name="username" class="form-control">
+                            <!-- Le champ username doit avoir précisément ce nom pour Spring Security -->
+                        </div>
+
+                        <div class="mb-3">
+                            <!-- Champ du mot de passe -->
+                            <label class="form-label"> Password </label>
+                            <input type="password" name="password" class="form-control">
+                            <!-- Le champ password doit s'appeler password pour être reconnu par Spring Security -->
+                        </div>
+
+                        <button class="btn btn-primary">Login</button>
+                        <!-- Bouton pour envoyer le formulaire -->
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>
