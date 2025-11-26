@@ -1,11 +1,10 @@
-package ma.enset.Thymeleaf; // Je mets ma classe principale dans ce package
+package ma.mundiapolis.Thymeleaf; // Je mets ma classe principale dans ce package
 
-import ma.enset.Thymeleaf.entities.Product; // J'utilise mon entité Product
-import ma.enset.Thymeleaf.repository.ProductRepository; // J'accède à la base via le repository
+import ma.mundiapolis.Thymeleaf.entities.Product; // J'utilise mon entité Product
+import ma.mundiapolis.Thymeleaf.repository.ProductRepository; // J'accède à la base via le repository
 import org.springframework.boot.CommandLineRunner; // Pour exécuter du code au démarrage
 import org.springframework.boot.SpringApplication; // Pour lancer l'application Spring Boot
 import org.springframework.boot.autoconfigure.SpringBootApplication; // Indique que c'est l'application principale
-import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication() // Je dis à Spring Boot que c’est l’application principale

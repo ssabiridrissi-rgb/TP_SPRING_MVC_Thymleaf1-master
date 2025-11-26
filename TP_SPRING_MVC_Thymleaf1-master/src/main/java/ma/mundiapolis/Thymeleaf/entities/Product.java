@@ -1,4 +1,4 @@
-package ma.enset.Thymeleaf.entities; // Le package où se trouve l'entité Product
+package ma.mundiapolis.Thymeleaf.entities; // Le package où se trouve l'entité Product
 
 import jakarta.persistence.Entity; // Indique que cette classe est une entité JPA (table dans la BD)
 import jakarta.persistence.GeneratedValue; // Pour générer automatiquement la valeur de l'id

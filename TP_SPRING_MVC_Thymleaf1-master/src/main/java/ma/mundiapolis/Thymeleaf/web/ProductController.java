@@ -1,15 +1,14 @@
-package ma.enset.Thymeleaf.web; // Je place ici mes contrôleurs web
+package ma.mundiapolis.Thymeleaf.web; // Je place ici mes contrôleurs web
 
 import jakarta.servlet.http.HttpSession; // Pour gérer la session (logout)
 import jakarta.validation.Valid; // Pour valider les données du formulaire
 import org.springframework.security.access.prepost.PreAuthorize; // Je sécurise mes méthodes avec les rôles
 import org.springframework.ui.Model; // Pour envoyer des données à la vue
-import ma.enset.Thymeleaf.entities.Product; // Mon entité Product
-import ma.enset.Thymeleaf.repository.ProductRepository; // J'accède à la base via ce repository
+import ma.mundiapolis.Thymeleaf.entities.Product; // Mon entité Product
+import ma.mundiapolis.Thymeleaf.repository.ProductRepository; // J'accède à la base via ce repository
 import org.springframework.beans.factory.annotation.Autowired; // Injection automatique du repository
 import org.springframework.stereotype.Controller; // J'indique que cette classe est un contrôleur Spring MVC
 import org.springframework.validation.BindingResult; // Permet de récupérer les erreurs de validation
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping; // Pour gérer les requêtes GET
 import org.springframework.web.bind.annotation.PostMapping; // Pour gérer les requêtes POST
 import org.springframework.web.bind.annotation.RequestParam; // Pour récupérer un paramètre dans la requête

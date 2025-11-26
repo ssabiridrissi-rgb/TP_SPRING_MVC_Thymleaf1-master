@@ -1,4 +1,4 @@
-package ma.enset.Thymeleaf;
+package ma.mundiapolis.Thymeleaf;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

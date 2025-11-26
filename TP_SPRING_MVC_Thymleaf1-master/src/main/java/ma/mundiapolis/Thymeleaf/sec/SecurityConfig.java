@@ -1,4 +1,4 @@
-package ma.enset.Thymeleaf.sec;
+package ma.mundiapolis.Thymeleaf.sec;
 
 import org.springframework.context.annotation.Bean;                     // J’ajoute un bean dans le contexte Spring
 import org.springframework.context.annotation.Configuration;         // Je précise que cette classe contient une config Spring
